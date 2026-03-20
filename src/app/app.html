@@ -1,0 +1,50 @@
+<div class="container" [class.dark]="modoOscuro">
+
+  <div class="card">
+
+    <!-- FOTO -->
+    <img src="/assets/foto.png">
+
+    <!-- DATOS -->
+    <h2>{{ nombre }}</h2>
+    <p>{{ carrera }} - {{ semestre }}</p>
+    <p>Edad: {{ edad }}</p>
+    <p>{{ correo }}</p>
+    <p>{{ telefono }}</p>
+    <p>{{ ubicacion }}</p>
+
+    <a [href]="github" target="_blank">GitHub</a> |
+    <a [href]="linkedin" target="_blank">LinkedIn</a>
+
+    <!-- SOBRE MI -->
+    <h3>Sobre mí</h3>
+    <p>{{ sobreMi }}</p>
+
+    <!-- SKILLS -->
+    <h3>Skills</h3>
+    <ul>
+      <li *ngFor="let skill of skills">{{ skill }}</li>
+    </ul>
+
+    <!-- BOTONES -->
+    <button (click)="toggleInfo()">Mostrar más</button>
+    <button (click)="toggleModo()">Modo oscuro</button>
+
+    <!-- INFO EXTRA -->
+    <div *ngIf="mostrarMas">
+
+      <h3>Formación</h3>
+      <p>{{ formacion.carrera }}</p>
+      <p>{{ formacion.institucion }}</p>
+      <p>{{ formacion.cursos }}</p>
+
+      <h3>Proyecto</h3>
+      <p><strong>{{ proyecto.nombre }}</strong></p>
+      <p>{{ proyecto.descripcion }}</p>
+      <p>{{ proyecto.tecnologias }}</p>
+
+    </div>
+
+  </div>
+
+</div>
